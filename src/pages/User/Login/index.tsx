@@ -23,46 +23,46 @@ import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 
 const ActionIcons = () => {
-  const langClassName = useEmotionCss(({ token }) => {
-    return {
-      marginLeft: '8px',
-      color: 'rgba(0, 0, 0, 0.2)',
-      fontSize: '24px',
-      verticalAlign: 'middle',
-      cursor: 'pointer',
-      transition: 'color 0.3s',
-      '&:hover': {
-        color: token.colorPrimaryActive,
-      },
-    };
-  });
+  // const langClassName = useEmotionCss(({ token }) => {
+  //   return {
+  //     marginLeft: '8px',
+  //     color: 'rgba(0, 0, 0, 0.2)',
+  //     fontSize: '24px',
+  //     verticalAlign: 'middle',
+  //     cursor: 'pointer',
+  //     transition: 'color 0.3s',
+  //     // '&:hover': {
+  //     //   color: token.colorPrimaryActive,
+  //     // },
+  //   };
+  // });
 
   return (
     <>
-      <AlipayCircleOutlined key="AlipayCircleOutlined" className={langClassName} />
-      <TaobaoCircleOutlined key="TaobaoCircleOutlined" className={langClassName} />
-      <WeiboCircleOutlined key="WeiboCircleOutlined" className={langClassName} />
+      <AlipayCircleOutlined key="AlipayCircleOutlined" className={''} />
+      <TaobaoCircleOutlined key="TaobaoCircleOutlined" className={''} />
+      <WeiboCircleOutlined key="WeiboCircleOutlined" className={''} />
     </>
   );
 };
 
 const Lang = () => {
-  const langClassName = useEmotionCss(({ token }) => {
-    return {
-      width: 42,
-      height: 42,
-      lineHeight: '42px',
-      position: 'fixed',
-      right: 16,
-      borderRadius: token.borderRadius,
-      ':hover': {
-        backgroundColor: token.colorBgTextHover,
-      },
-    };
-  });
+  // const langClassName = useEmotionCss(({ token }) => {
+  //   return {
+  //     width: 42,
+  //     height: 42,
+  //     lineHeight: '42px',
+  //     position: 'fixed',
+  //     right: 16,
+  //     // borderRadius: token.borderRadius,
+  //     // ':hover': {
+  //     //   backgroundColor: token.colorBgTextHover,
+  //     // },
+  //   };
+  // });
 
   return (
-    <div className={langClassName} data-lang>
+    <div className={''} data-lang>
       {SelectLang && <SelectLang />}
     </div>
   );
@@ -88,17 +88,17 @@ const Login: React.FC = () => {
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
 
-  const containerClassName = useEmotionCss(() => {
-    return {
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100vh',
-      overflow: 'auto',
-      backgroundImage:
-        "url('https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/V-_oS6r-i7wAAAAAAAAAAAAAFl94AQBr')",
-      backgroundSize: '100% 100%',
-    };
-  });
+  // const containerClassName = useEmotionCss(() => {
+  //   return {
+  //     display: 'flex',
+  //     flexDirection: 'column',
+  //     height: '100vh',
+  //     overflow: 'auto',
+  //     backgroundImage:
+  //       "url('https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/V-_oS6r-i7wAAAAAAAAAAAAAFl94AQBr')",
+  //     backgroundSize: '100% 100%',
+  //   };
+  // });
 
   const intl = useIntl();
 
@@ -144,7 +144,7 @@ const Login: React.FC = () => {
   const { status, type: loginType } = userLoginState;
 
   return (
-    <div className={containerClassName}>
+    <div className={''}>
       <Helmet>
         <title>
           {intl.formatMessage({

@@ -10,14 +10,14 @@ export type HeaderDropdownProps = {
 } & Omit<DropDownProps, 'overlay'>;
 
 const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ overlayClassName: cls, ...restProps }) => {
-  const className = useEmotionCss(({ token }) => {
-    return {
-      [`@media screen and (max-width: ${token.screenXS})`]: {
-        width: '100%',
-      },
-    };
-  });
-  return <Dropdown overlayClassName={classNames(className, cls)} {...restProps} />;
+  // const className = useEmotionCss(({ token }) => {
+  //   return {
+  //     [`@media screen and (max-width: ${token.screenXS})`]: {
+  //       width: '100%',
+  //     },
+  //   };
+  // });
+  return <Dropdown overlayClassName={classNames('', cls)} {...restProps} />;
 };
 
 export default HeaderDropdown;

@@ -23,6 +23,12 @@ export default [
     ],
   },
   {
+    path: '/three',
+    name: 'three',
+    icon: 'codepen',
+    component: './three',
+  },
+  {
     path: '/welcome',
     name: 'welcome',
     icon: 'smile',

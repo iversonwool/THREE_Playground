@@ -40,21 +40,21 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
       });
     }
   };
-  const actionClassName = useEmotionCss(({ token }) => {
-    return {
-      display: 'flex',
-      height: '48px',
-      marginLeft: 'auto',
-      overflow: 'hidden',
-      alignItems: 'center',
-      padding: '0 8px',
-      cursor: 'pointer',
-      borderRadius: token.borderRadius,
-      '&:hover': {
-        backgroundColor: token.colorBgTextHover,
-      },
-    };
-  });
+  // const actionClassName = useEmotionCss(({ token }) => {
+  //   return {
+  //     display: 'flex',
+  //     height: '48px',
+  //     marginLeft: 'auto',
+  //     overflow: 'hidden',
+  //     alignItems: 'center',
+  //     padding: '0 8px',
+  //     cursor: 'pointer',
+  //     borderRadius: token.borderRadius,
+  //     '&:hover': {
+  //       backgroundColor: token.colorBgTextHover,
+  //     },
+  //   };
+  // });
   const { initialState, setInitialState } = useModel('@@initialState');
 
   const onMenuClick = useCallback(
@@ -73,7 +73,7 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
   );
 
   const loading = (
-    <span className={actionClassName}>
+    <span className={''}>
       <Spin
         size="small"
         style={{

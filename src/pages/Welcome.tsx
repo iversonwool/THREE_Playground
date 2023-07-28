@@ -14,18 +14,18 @@ const InfoCard: React.FC<{
   desc: string;
   href: string;
 }> = ({ title, href, index, desc }) => {
-  const { useToken } = theme;
+  // const { useToken } = theme;
 
-  const { token } = useToken();
+  // const { token } = useToken();
 
   return (
     <div
       style={{
-        backgroundColor: token.colorBgContainer,
-        boxShadow: token.boxShadow,
+        // backgroundColor: token.colorBgContainer,
+        // boxShadow: token.boxShadow,
         borderRadius: '8px',
         fontSize: '14px',
-        color: token.colorTextSecondary,
+        // color: token.colorTextSecondary,
         lineHeight: '22px',
         padding: '16px 19px',
         minWidth: '220px',
@@ -58,7 +58,7 @@ const InfoCard: React.FC<{
         <div
           style={{
             fontSize: '16px',
-            color: token.colorText,
+            // color: token.colorText,
             paddingBottom: 8,
           }}
         >
@@ -68,7 +68,7 @@ const InfoCard: React.FC<{
       <div
         style={{
           fontSize: '14px',
-          color: token.colorTextSecondary,
+          // color: token.colorTextSecondary,
           textAlign: 'justify',
           lineHeight: '22px',
           marginBottom: 8,
@@ -84,7 +84,7 @@ const InfoCard: React.FC<{
 };
 
 const Welcome: React.FC = () => {
-  const { token } = theme.useToken();
+  // const { token } = theme.useToken();
   const { initialState } = useModel('@@initialState');
   return (
     <PageContainer>
@@ -111,7 +111,7 @@ const Welcome: React.FC = () => {
           <div
             style={{
               fontSize: '20px',
-              color: token.colorTextHeading,
+              // color: token.colorTextHeading,
             }}
           >
             欢迎使用 Ant Design Pro
@@ -119,7 +119,7 @@ const Welcome: React.FC = () => {
           <p
             style={{
               fontSize: '14px',
-              color: token.colorTextSecondary,
+              // color: token.colorTextSecondary,
               lineHeight: '22px',
               marginTop: 16,
               marginBottom: 32,
