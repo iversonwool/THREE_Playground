@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Card, Row, Col, Modal } from 'antd';
 import styles from './index.less';
+import Responsive from './example/responsive';
+
+type Item = {
+  title: string;
+  cmpt: () => ReactNode;
+};
 
 function ThreePlayground() {
   const [open, setOpen] = React.useState(false);
-  const [title, setTitle] = React.useState('A');
+  const [item, setItem] = React.useState<Item>({ title: '', cmpt: () => null });
 
-  function showDemo(title: string) {
+  function showDemo(i: Item) {
+    setItem(i);
     setOpen(true);
-    setTitle(title);
   }
 
   function closeModal() {
@@ -17,22 +23,25 @@ function ThreePlayground() {
 
   const demoList = [
     {
-      name: 'basic',
-      title: 'Basic',
+      name: 'responsive',
+      title: 'Responsive',
+      cmpt: Responsive,
     },
-    {
-      name: 'advanced',
-      title: 'Advanced',
-    },
-    {
-      name: 'basic1',
-      title: 'Basic1',
-    },
-    {
-      name: 'advanced2',
-      title: 'Advanced2',
-    },
+    // {
+    //   name: 'advanced',
+    //   title: 'Advanced',
+    // },
+    // {
+    //   name: 'basic1',
+    //   title: 'Basic1',
+    // },
+    // {
+    //   name: 'advanced2',
+    //   title: 'Advanced2',
+    // },
   ];
+  const Cmpt = item.cmpt;
+
   return (
     <Row gutter={[16, 16]} className={styles.threeHomepage}>
       {demoList.map((item) => {
@@ -47,7 +56,7 @@ function ThreePlayground() {
             xl={6}
             xxl={4}
             onClick={() => {
-              showDemo(title);
+              showDemo(item);
             }}
           >
             <Card title={name} hoverable>
@@ -59,13 +68,14 @@ function ThreePlayground() {
 
       <Modal
         width={'100%'}
-        title={title}
+        title={item.title}
         open={open}
         onCancel={closeModal}
         footer={null}
         className={styles.modalStyle}
+        bodyStyle={{ flex: 1, overflow: 'hidden' }}
       >
-        sls
+        <Cmpt />
       </Modal>
     </Row>
   );
