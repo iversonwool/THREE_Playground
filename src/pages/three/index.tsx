@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Card, Row, Col, Modal } from 'antd';
 import styles from './index.less';
 import Responsive from './example/responsive';
+import Scenegraph from './example/scenegraph';
 
 type Item = {
   title: string;
@@ -23,14 +24,15 @@ function ThreePlayground() {
 
   const demoList = [
     {
-      name: 'responsive',
-      title: 'Responsive',
+      name: 'Responsive',
+      title: '响应式设计',
       cmpt: Responsive,
     },
-    // {
-    //   name: 'advanced',
-    //   title: 'Advanced',
-    // },
+    {
+      name: 'Scenegraph',
+      title: '场景图',
+      cmpt: Scenegraph,
+    },
     // {
     //   name: 'basic1',
     //   title: 'Basic1',
@@ -59,8 +61,8 @@ function ThreePlayground() {
               showDemo(item);
             }}
           >
-            <Card title={name} hoverable>
-              {title}
+            <Card title={title} hoverable>
+              {name}
             </Card>
           </Col>
         );

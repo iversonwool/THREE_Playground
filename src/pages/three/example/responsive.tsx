@@ -1,24 +1,11 @@
 import React from 'react';
 import styles from './index.less';
 import * as THREE from 'three';
+import { resizeRenderToDisplaySize } from './utils/renderer';
 
 function ResponsiveDemo() {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const rafRef = React.useRef<number>();
-
-  function resizeRenderToDisplaySize(renderer: THREE.WebGLRenderer) {
-    const canvas = renderer.domElement;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    if (width === 0 || height === 0) return false;
-    const needResize = width !== canvas.width || height !== canvas.height;
-    if (needResize) {
-      // 更新渲染器的尺寸 fix锯齿问题
-      console.log('renderer resize', canvas.clientWidth, canvas.clientHeight);
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    }
-    return needResize;
-  }
 
   function init() {
     const renderer = new THREE.WebGLRenderer({
@@ -68,10 +55,6 @@ function ResponsiveDemo() {
     animate(2000);
   }
 
-  function pause() {
-    cancelAnimationFrame(rafRef.current as number);
-  }
-
   React.useEffect(function () {
     init();
   }, []);
@@ -83,14 +66,7 @@ function ResponsiveDemo() {
     };
   }, []);
 
-  return (
-    <>
-      <canvas ref={canvasRef} className={styles.canvasContainer}></canvas>
-      <button type="button" onClick={pause}>
-        pause
-      </button>
-    </>
-  );
+  return <canvas ref={canvasRef} className={styles.canvasContainer}></canvas>;
 }
 
 export default ResponsiveDemo;
