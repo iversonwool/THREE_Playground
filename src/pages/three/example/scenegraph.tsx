@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './index.less';
 import * as THREE from 'three';
+import GUI from 'lil-gui'
 import { resizeRenderToDisplaySize } from './utils/renderer';
+import AxisGrigHelper from './utils/lil_gui'
+
+
 
 function Scenegraph() {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
@@ -14,8 +18,16 @@ function Scenegraph() {
       canvas: canvasRef.current as HTMLCanvasElement,
       antialias: true,
     });
+    const gui = new GUI()
+
+    function makeAxisGrid(node: THREE.Object3D, label: string, unit?: number) {
+      const helper = new AxisGrigHelper(node, unit)
+      gui.add(helper, 'visible').name(label)
+    }
 
     const scene = new THREE.Scene();
+    // 将整个场景绕z旋转20度 x轴旋转40度
+    scene.rotation.set(THREE.MathUtils.degToRad(45), 0 , THREE.MathUtils.degToRad(20));
 
     // 空的场景图
     const solarSystem = new THREE.Object3D();
@@ -61,6 +73,7 @@ function Scenegraph() {
 
     {
       // 点光源
+      // 在场景中心
       const light = new THREE.PointLight(0xffffff, 500);
       scene.add(light);
     }
@@ -68,8 +81,16 @@ function Scenegraph() {
     const camera = new THREE.PerspectiveCamera(40, 2, 0.1, 1000);
     // camera.position.set(0, 50, 0);
     camera.position.set(0, 0, 50);
-    // camera.up.set(0, 0, 1);
+    camera.up.set(0, 1, 0);
     camera.lookAt(0, 0, 0);
+
+    makeAxisGrid(solarSystem, 'solarSystem', 26)
+    makeAxisGrid(sunMesh, 'sunMesh')
+    makeAxisGrid(earthOrbit, 'earthOrbit')
+    makeAxisGrid(earthMesh, 'earthMesh')
+    makeAxisGrid(moonOrbit, 'moonOrbit')
+    makeAxisGrid(moonMesh, 'moonMesh')
+    
 
     function animate(timestamp: DOMHighResTimeStamp) {
       if (rafRef.current) {
@@ -77,6 +98,12 @@ function Scenegraph() {
       }
       const seconds = timestamp / 1000;
       objects.forEach((mesh) => {
+
+        // const axes = new THREE.AxesHelper();
+        // (axes.material as THREE.Material).depthTest = false
+        // axes.renderOrder = 1
+        // mesh.add(axes)
+
         mesh.rotation.y = seconds;
       });
       // sunMesh.rotation.x = seconds

@@ -52,6 +52,7 @@
     "@umijs/route-utils": "^2.2.2",
     "antd": "^4.24.12",
     "classnames": "^2.3.2",
+    "lil-gui": "^0.18.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "omit.js": "^2.0.2",

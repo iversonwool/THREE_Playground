@@ -23,6 +23,9 @@ dependencies:
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
+  lil-gui:
+    specifier: ^0.18.2
+    version: 0.18.2
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -12025,6 +12028,10 @@ packages:
   /lil-gui@0.17.0:
     resolution: {integrity: sha512-MVBHmgY+uEbmJNApAaPbtvNh1RCAeMnKym82SBjtp5rODTYKWtM+MXHCifLe2H2Ti1HuBGBtK/5SyG4ShQ3pUQ==}
     dev: true
+
+  /lil-gui@0.18.2:
+    resolution: {integrity: sha512-DgdrLy3/KGC0PiQLKgOcJMPItP4xY4iWgJ9+91Zaxfr8GCTmMps05QS9w9jW7yspILlbscbquwjOwxmWnSx5Uw==}
+    dev: false
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
